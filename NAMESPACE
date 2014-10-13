@@ -1,0 +1,109 @@
+import(methods)
+
+importFrom(utils, download.file, installed.packages, read.table)
+
+import(BiocGenerics)
+import(S4Vectors)
+import(IRanges)
+import(GenomeInfoDb)
+import(GenomicRanges)
+
+importMethodsFrom(DBI, dbCommit, dbConnect,
+                  dbDisconnect, dbExistsTable, dbGetQuery,
+                  dbReadTable, dbWriteTable, dbListTables, dbListFields)
+
+importFrom(RSQLite, SQLite, SQLITE_RO)
+importMethodsFrom(RSQLite, dbBeginTransaction, dbGetPreparedQuery)
+
+importFrom(RCurl, getURL)
+
+importFrom(Biobase, createPackage)
+
+importClassesFrom(Biostrings, DNAString, DNAStringSet, MaskedDNAString)
+importFrom(Biostrings, "masks<-")
+
+importFrom(biomaRt, getBM, listAttributes, listDatasets, listMarts,
+           useDataset, useMart)
+
+importFrom(rtracklayer, browserSession, ucscTableQuery,
+           tableNames, getTable, trackNames, ucscSchema, asBED, asGFF, import)
+
+importFrom(AnnotationDbi, loadDb, saveDb)
+
+exportClasses(TxDb, FeatureDb)
+
+export(
+  DEFAULT_CIRC_SEQS,
+  makeTranscriptDb,
+  supportedUCSCtables,
+  supportedUCSCFeatureDbTracks,
+  supportedUCSCFeatureDbTables,
+  UCSCFeatureDbTableSchema,
+  getChromInfoFromUCSC,
+  makeTranscriptDbFromUCSC,
+  getChromInfoFromBiomart,
+  makeTranscriptDbFromBiomart,
+  makeTranscriptDbFromGFF,
+  transcripts, exons, cds, genes,
+  disjointExons,
+  microRNAs,
+  tRNAs,
+  transcriptsByOverlaps,
+  exonsByOverlaps,
+  cdsByOverlaps,
+  id2name,
+  transcriptsBy,
+  exonsBy,
+  cdsBy,
+  intronsByTranscript,
+  fiveUTRsByTranscript,
+  threeUTRsByTranscript,
+  extractUpstreamSeqs,
+  extractTranscriptSeqs,
+  transcriptLocs2refLocs,
+  transcriptWidths,
+  makeFeatureDbFromUCSC,
+  makeTxDbPackage,
+  makeTxDbPackageFromUCSC,
+  makeTxDbPackageFromBiomart,
+  makeFDbPackageFromUCSC,	
+  features,
+  supportedMiRBaseBuildValues,
+  getPromoterSeq,
+
+  # Deprecated:
+  sortExonsByRank,
+
+  ## Defunct:
+  extractTranscripts,
+  extractTranscriptsFromGenome,
+  determineDefaultSeqnameStyle
+)
+
+exportMethods(
+  metadata,
+  show,
+  as.list,
+  seqinfo, "seqinfo<-",
+  transcripts, exons, cds, genes,
+  promoters,
+  disjointExons,
+  microRNAs,
+  tRNAs,
+  transcriptsByOverlaps,
+  exonsByOverlaps,
+  cdsByOverlaps,
+  transcriptsBy,
+  exonsBy,
+  cdsBy,
+  intronsByTranscript,
+  fiveUTRsByTranscript,
+  threeUTRsByTranscript,
+  extractUpstreamSeqs,
+  extractTranscriptSeqs,
+  isActiveSeq,
+  "isActiveSeq<-",
+  asBED, asGFF,
+  getPromoterSeq,
+  distance
+)
