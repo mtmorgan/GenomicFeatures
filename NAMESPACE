@@ -1,0 +1,151 @@
+import(methods)
+
+importFrom(utils, download.file, installed.packages, read.table)
+
+import(BiocGenerics)
+import(S4Vectors)
+import(IRanges)
+import(GenomeInfoDb)
+import(GenomicRanges)
+
+importMethodsFrom(DBI, dbCommit, dbConnect,
+                  dbDisconnect, dbExistsTable, dbGetQuery,
+                  dbReadTable, dbWriteTable, dbListTables, dbListFields)
+
+importFrom(RSQLite, SQLite, SQLITE_RO)
+importMethodsFrom(RSQLite, dbBegin, dbGetPreparedQuery)
+
+importFrom(RCurl, getURL)
+
+importFrom(Biobase, createPackage)
+
+importClassesFrom(Biostrings, DNAString, DNAStringSet, MaskedDNAString)
+importFrom(Biostrings, getSeq)
+
+importFrom(biomaRt, getBM, listAttributes, listDatasets, listMarts,
+           useDataset, useMart)
+
+importFrom(rtracklayer, browserSession, ucscTableQuery,
+           tableNames, getTable, trackNames, ucscSchema, asBED, asGFF, import)
+
+importFrom(AnnotationDbi, dbconn, loadDb, saveDb)
+
+exportClasses(TxDb, FeatureDb)
+
+export(
+  ## utils.R:
+  DEFAULT_CIRC_SEQS,
+
+  ## makeTxDb.R:
+  makeTxDb,
+
+  ## makeTxDbFromUCSC.R:
+  supportedUCSCtables,
+  getChromInfoFromUCSC,
+  makeTxDbFromUCSC,
+
+  ## makeTxDbFromBiomart.R:
+  getChromInfoFromBiomart,
+  makeTxDbFromBiomart,
+
+  ## makeTxDbFromGRanges.R:
+  makeTxDbFromGRanges,
+
+  ## makeTxDbFromGFF.R:
+  makeTxDbFromGFF,
+
+  ## makeFeatureDbFromUCSC.R:
+  supportedUCSCFeatureDbTracks,
+  supportedUCSCFeatureDbTables,
+  UCSCFeatureDbTableSchema,
+  makeFeatureDbFromUCSC,
+
+  ## id2name.R:
+  id2name,
+
+  ## transcripts.R:
+  transcripts, exons, cds, genes,
+  disjointExons,
+  microRNAs,
+  tRNAs,
+
+  ## transcriptsBy.R:
+  transcriptsBy,
+  exonsBy,
+  cdsBy,
+  intronsByTranscript,
+  fiveUTRsByTranscript,
+  threeUTRsByTranscript,
+
+  ## transcriptsByOverlaps.R:
+  transcriptsByOverlaps,
+  exonsByOverlaps,
+  cdsByOverlaps,
+
+  ## transcriptLengths.R:
+  transcriptLengths,
+
+  ## features.R:
+  features,
+
+  ## extractTranscriptSeqs.R:
+  extractTranscriptSeqs,
+
+  ## extractUpstreamSeqs.R:
+  extractUpstreamSeqs,
+
+  ## getPromoterSeq-methods.R:
+  getPromoterSeq,
+
+  ## makeTxDbPackage.R:
+  makeTxDbPackage,
+  makeTxDbPackageFromUCSC,
+  makeTxDbPackageFromBiomart,
+  makeFDbPackageFromUCSC,
+  supportedMiRBaseBuildValues,
+  mapToTranscripts, pmapToTranscripts,
+  mapFromTranscripts, pmapFromTranscripts,
+
+  ## transcriptLocs2refLocs.R:
+  transcriptLocs2refLocs,
+  transcriptWidths,
+
+  # Deprecated:
+  makeTranscriptDb,
+  makeTranscriptDbFromUCSC,
+  makeTranscriptDbFromBiomart,
+  makeTranscriptDbFromGFF,
+
+  ## Defunct:
+  sortExonsByRank
+)
+
+exportMethods(
+  species, organism,
+  show,
+  as.list,
+  seqinfo, "seqinfo<-",
+  transcripts, exons, cds, genes,
+  promoters,
+  disjointExons,
+  microRNAs,
+  tRNAs,
+  transcriptsByOverlaps,
+  exonsByOverlaps,
+  cdsByOverlaps,
+  transcriptsBy,
+  exonsBy,
+  cdsBy,
+  intronsByTranscript,
+  fiveUTRsByTranscript,
+  threeUTRsByTranscript,
+  extractUpstreamSeqs,
+  extractTranscriptSeqs,
+  isActiveSeq,
+  "isActiveSeq<-",
+  asBED, asGFF,
+  getPromoterSeq,
+  distance,
+  mapToTranscripts, pmapToTranscripts,
+  mapFromTranscripts, pmapFromTranscripts
+)
